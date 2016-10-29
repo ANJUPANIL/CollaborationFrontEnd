@@ -13,13 +13,13 @@
 		<div class="col-md-12 panel panel-default">
 			<h2 class="content-title">Job Opportunities</h2><br>
 			<input type="search" placeholder="Search Job" class="form-control"
-				ng-model="searchTerm" />
+				ng-model="searchTerm" /><br>
 			<div class="panel-body">
 				<div ng-repeat="job in ctrl.jobs | filter:searchTerm">
 					<div class="panel panel-success">
 						<div class="panel-heading">
-							<h3 class="panel-title">{{job.job_title}}</h3><button>
-							<span class="glyphicon glyphicon-bookmark pull-right"> MakeBookmark</span></button>
+							<h3 class="panel-title">{{job.job_title}}</h3><button class="pull-right">
+							<span class="glyphicon glyphicon-bookmark "> MakeBookmark</span></button>
 						</div>
 						<div class="panel-body">
 						<b style="color: #7f8496;">Job Description </b><br>{{job.job_description}}<br><br>
