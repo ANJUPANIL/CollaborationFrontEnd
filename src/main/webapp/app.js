@@ -13,6 +13,21 @@ app.config(function($routeProvider){
 		controller  : 'UserController'
 	})
 	
+	.when('/postjob', {
+		templateUrl : 'c_job/postjob.html',
+		controller  : 'JobController'
+	})
+	
+	.when('/viewjob', {
+		templateUrl : 'c_job/viewjob.html',
+		controller  : 'JobController'
+	})
+	
+	.when('/blog', {
+		templateUrl : 'c_blog/blog.html',
+		controller  : 'BlogController'
+	})
+	
 	.otherwise({redirectTo: '/'});
 	alert("hi")
 	

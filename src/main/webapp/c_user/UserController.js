@@ -19,9 +19,10 @@ app.controller('UserController', ['$scope', 'UserService','$location','$rootScop
             .then(
             function(d) {
                 self.users = d;
+                console.log("Fetch all users sucess")
             },
             function(errResponse){
-                console.error('Error while fetching Users');
+                console.error('Error while fetching Users'+ errResponse);
             }
         );
     };
@@ -125,5 +126,5 @@ app.controller('UserController', ['$scope', 'UserService','$location','$rootScop
         		errorMessage:''};
         $scope.myForm.$setPristine(); //reset Form
     }
-    alert("hi...user controller")
+   
 }]);

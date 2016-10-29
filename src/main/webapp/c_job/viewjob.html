@@ -1,0 +1,44 @@
+
+<style>
+.panel-heading .pull-right {
+	margin-top: -25px;
+}
+</style>
+
+
+<body>
+	
+	<div class="generic-container" ng-controller="JobController as ctrl">
+
+		<div class="col-md-12 panel panel-default">
+			<h2 class="content-title">Job Opportunities</h2><br>
+			<input type="search" placeholder="Search Job" class="form-control"
+				ng-model="searchTerm" />
+			<div class="panel-body">
+				<div ng-repeat="job in ctrl.jobs | filter:searchTerm">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3 class="panel-title">{{job.job_title}}</h3><button>
+							<span class="glyphicon glyphicon-bookmark pull-right"> MakeBookmark</span></button>
+						</div>
+						<div class="panel-body">
+						<b style="color: #7f8496;">Job Description </b><br>{{job.job_description}}<br><br>
+						<b style="color: #7f8496;">Company Name :  </b>{{job.job_companyname}}&nbsp;&nbsp; 
+						<b style="color: #7f8496;">Role :  </b>{{job.job_role}}&nbsp;&nbsp; 
+						<b style="color: #7f8496;">Location :  </b>{{job.job_location}}&nbsp;&nbsp; 
+						
+						<b style="color: #7f8496;">Experience :  </b>{{job.job_experience}}<br>
+						
+						
+						</div>
+					</div>
+
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+</body>
