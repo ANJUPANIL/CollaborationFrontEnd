@@ -67,6 +67,36 @@ app.factory('UserService',['$http', '$q', '$rootScope', function($http,$q,$rootS
 	        
 	    
 		}*/
+	    
+	    authenticate: function(user){
+	    	return $http.post(BASE_URL+'/user/authenticate',user)
+	    	.then(
+	    			function(response){
+	    				if(response.data.errorMessage=="")
+	    					{
+	    					
+	    						$rootScope.currentUser={
+	    								fname:response.data.fname,
+	    								user_id:response.data.user_id,
+	    								role:response.data.role
+	    						};
+	    						
+	    					}
+	    				return response.data;
+	    			},
+	    
+	    	function(errResponse)
+	    	{
+	    		$rootScope.userLoggedIn=false;
+	    		console.error('Error while getting user');
+	    		return $q.reject(errResponse);
+	    		
+	    	});
+	    	
+	    	
+	    	
+	    	
+	    }
 	
 	}
 	

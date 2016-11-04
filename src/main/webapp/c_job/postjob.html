@@ -26,13 +26,13 @@
 									<b>Post New Job</b>
 								</h2>
 								<br>
-								<table style="width: 40%">
+								<table style="width: 80%">
 
 									<tr class="form-group">
 										<td style="width: 25%"><label for="job_title">
 												Post Title </label></td>
 										<td><input id="job_title" name="job_title"
-											ng-model="ctrl.job.job_title" size="40" class="form-control"
+											ng-model="ctrl.job.job_title" size="80" class="form-control"
 											required autofocus /><br /></td>
 									</tr>
 
@@ -47,9 +47,9 @@
 									<tr class="form-group">
 										<td style="width: 25%"><label for="job_description">
 												Description </label></td>
-										<td><input id="job_description" name="job_description"
+										<td><textarea rows="4" cols="50" id="job_description" name="job_description"
 											ng-model="ctrl.job.job_description" size="40"
-											class="form-control" required /><br /></td>
+											class="form-control" required ></textarea><br /></td>
 									</tr>
 
 									<tr class="form-group">

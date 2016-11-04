@@ -54,7 +54,8 @@ app.controller('UserController', ['$scope', 'UserService','$location','$rootScop
                          self.users = d;
                          if($rootScope.currentUser)
                         	 {
-                        	 	$location.path('/');
+                        	 	console.log("valid user")
+                        	 	$location.path('/viewjob');
                         	 	
                         	 }
                      },
