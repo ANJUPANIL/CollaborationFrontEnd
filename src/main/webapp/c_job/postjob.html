@@ -1,0 +1,168 @@
+<style type="text/css">
+.error {
+	color: red;
+}
+
+.filterable {
+	margin-top: 15px;
+}
+
+.filterable .panel-heading .pull-right {
+	margin-top: -25px;
+}
+</style>
+<body>
+	<div class="generic-container" ng-controller="JobController as ctrl">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-wrap">
+
+						<form ng-submit="ctrl.submit()" name="myForm"
+							class="form-horizondal">
+
+							<div align="center" class="table-responsive">
+								<h2>
+									<b>Post New Job</b>
+								</h2>
+								<br>
+								<table style="width: 80%">
+
+									<tr class="form-group">
+										<td style="width: 25%"><label for="job_title">
+												Post Title </label></td>
+										<td><input id="job_title" name="job_title"
+											ng-model="ctrl.job.job_title" size="80" class="form-control"
+											required autofocus /><br /></td>
+									</tr>
+
+									<tr class="form-group">
+										<td style="width: 25%"><label for="job_companyname">
+												Company Name </label></td>
+										<td><input id="job_companyname" name="job_companyname"
+											ng-model="ctrl.job.job_companyname" size="40"
+											class="form-control" required /><br /></td>
+									</tr>
+
+									<tr class="form-group">
+										<td style="width: 25%"><label for="job_description">
+												Description </label></td>
+										<td><textarea rows="4" cols="50" id="job_description" name="job_description"
+											ng-model="ctrl.job.job_description" size="40"
+											class="form-control" required ></textarea><br /></td>
+									</tr>
+
+									<tr class="form-group">
+										<td style="width: 25%"><label for="job_role">
+												Role </label></td>
+										<td><input id="job_role" name="job_role"
+											ng-model="ctrl.job.job_role" size="40" class="form-control"
+											required /><br /></td>
+									</tr>
+
+									<tr class="form-group">
+										<td style="width: 25%"><label for="job_loaction">
+												Location </label></td>
+										<td><input id="job_location" name="job_location"
+											ng-model="ctrl.job.job_location" size="40"
+											class="form-control" required /><br /></td>
+									</tr>
+
+									<tr class="form-group">
+										<td style="width: 25%"><label for="job_experience">
+												Experience </label></td>
+										<td><input id="job_experience" name="job_experience"
+											ng-model="ctrl.job.job_experience" size="40"
+											class="form-control" required /><br /></td>
+									</tr>
+									<tr>
+										<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+										<td colspan="2">
+											<button type="submit" class="btn btn-success"
+												style="width: 150px;">Post</button>
+										</td>
+									</tr>
+
+									<tr>
+
+										<td colspan="2" class="error">{{ctrl.job.errorMessage}}</td>
+									</tr>
+								</table>
+
+							</div>
+
+
+						</form>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+
+
+		<div class="row" align="center">
+			<div class="panel panel-default filterable" style="width: 100%">
+				<div class="panel-heading" align="left">
+					<h3 class="panel-title">List All Posted Jobs</h3>
+					<div class="pull-right">
+						<input type="text" class="form-control" size="40"
+							ng-model="searchTerm" placeholder="Search Job" />
+					</div>
+				</div>
+				<div align="center" class="table-responsive">
+					<table style="width: 100%">
+						<tr style="width: 100%" >
+							<td>
+								<table class="table" >
+									<tr style="font-weight: bold;" align="center">
+									<td ><span class="glyphicon glyphicon-asterisk"></span></td>
+										<td>ID#</td>
+										<td>TITLE</td>
+										<td>COMPANY NAME</td>
+										<td>DESCRIPTION</td>
+										<td>ROLE</td>
+										<td>LOCATION</td>
+										<td>EXPERIENCE</td>
+										
+
+
+									</tr>
+									<tr ng-repeat="job in ctrl.jobs | filter:searchTerm">
+									<td><a href="editbrand?id={{jobs.job_id}}"
+											class="btn btn-primary" role="button" ><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+											<a href="delbrand?id={{jobs.job_id}}" class="btn btn-warning"
+											role="button" 
+											onclick="return confirm('Are you sure..!Do you want to delete?');return false;"><span class="glyphicon glyphicon-trash"></span></a>
+										</td>
+										<td style="font-weight: bold;">{{job.job_id}}</td>
+										<td>{{job.job_title}}</td>
+										<td>{{job.job_companyname}}</td>
+										<td>{{job.job_description}}</td>
+										<td>{{job.job_role}}</td>
+										<td>{{job.job_location}}</td>
+										<td>{{job.job_experience}}</td>
+
+										
+									</tr>
+								</table>
+
+
+
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	
+	
+	
+	
+</body>
