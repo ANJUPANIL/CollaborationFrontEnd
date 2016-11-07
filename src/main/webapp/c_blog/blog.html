@@ -1,4 +1,16 @@
+<style type="text/css">
+.error {
+	color: red;
+}
 
+.filterable {
+	margin-top: 15px;
+}
+
+.filterable .panel-heading .pull-right {
+	margin-top: -25px;
+}
+</style>
 <body>
 	<div ng-controller="BlogController as ctrl">
 		<div class="container">
@@ -45,5 +57,59 @@
 				</div>
 			</div>
 		</div>
+		<br>
+		<br>
+		<div class="row" align="center">
+			<div class="panel panel-default filterable" style="width: 100%">
+				<div class="panel-heading" align="left">
+					<h3 class="panel-title">List All Posted Blogs</h3>
+					<div class="pull-right">
+						<input type="text" class="form-control" size="40"
+							ng-model="searchTerm" placeholder="Search Job" />
+					</div>
+				</div>
+				<div align="center" class="table-responsive">
+					<table style="width: 100%">
+						<tr style="width: 100%" >
+							<td>
+								<table class="table" >
+									<tr style="font-weight: bold;" >
+									<td ><span class="glyphicon glyphicon-asterisk"></span></td>
+										<td style="width: 10%">ID#</td>
+										<td style="width: 20%">TITLE</td>
+										<td style="width: 60%">CONTENT</td>
+										<td style="width: 20%">POSTED DATE</td>
+										<td style="width: 20%">STATUS</td>
+										
+
+
+									</tr>
+									<tr ng-repeat="blog in ctrl.blogs | filter:searchTerm">
+									<td><a href="editbrand?id={{jobs.job_id}}"
+											class="btn btn-primary" role="button" ><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+											<a href="delbrand?id={{jobs.job_id}}" class="btn btn-warning"
+											role="button" 
+											onclick="return confirm('Are you sure..!Do you want to delete?');return false;"><span class="glyphicon glyphicon-trash"></span></a>
+										</td>
+										<td style="font-weight: bold;">{{blog.blog_id}}</td>
+										<td>{{blog.blog_title}}</td>
+										<td>{{blog.blog_content}}</td>
+										<td>{{blog.blog_date}}</td>
+										<td>{{blog.status}}</td>
+										
+										
+									</tr>
+								</table>
+
+
+
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 </body>

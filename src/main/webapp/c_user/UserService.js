@@ -68,6 +68,21 @@ app.factory('UserService',['$http', '$q', '$rootScope', function($http,$q,$rootS
 	    
 		}*/
 	    
+	    
+	    logout:function(id){
+	    	return $http.get(BASE_URL+'/user/logout')
+            .then(
+    	            function (response) {
+    	                return response.data;
+    	            },
+    	            function(errResponse){
+    	                console.error('Error while updating User');
+    	                return $q.reject(errResponse);
+    	            }
+	    	
+	    );
+	},
+	    
 	    authenticate: function(user){
 	    	return $http.post(BASE_URL+'/user/authenticate',user)
 	    	.then(

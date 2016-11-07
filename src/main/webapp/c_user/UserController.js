@@ -11,7 +11,7 @@ app.controller('UserController', ['$scope', 'UserService','$location','$rootScop
     		dob:'',
     		address:'',
     		contact:'',
-    		user_role:'',
+    		role:'',
     		errorMessage:''};
     self.users=[];
     	
@@ -58,6 +58,9 @@ app.controller('UserController', ['$scope', 'UserService','$location','$rootScop
                         	 	$location.path('/home');
                         	 	
                         	 }
+                         else{
+                        	 alert("Invalid credentials..Please enter valid credentials");
+                         }
                      },
                      
              function(errResponse){
@@ -77,6 +80,12 @@ app.controller('UserController', ['$scope', 'UserService','$location','$rootScop
             }
         );
     };
+    
+    self.logout=function(){
+    	$rootScope.currentUser={};
+    	$cookieStore.romove('currentUser');
+    	UserService.logout()
+    }
 
     self.fetchAllUsers();
     
@@ -123,7 +132,7 @@ app.controller('UserController', ['$scope', 'UserService','$location','$rootScop
         		address:'',
         		contact:'',
         		createddate:'',
-        		user_role:'',
+        		role:'',
         		errorMessage:''};
         $scope.myForm.$setPristine(); //reset Form
     }
