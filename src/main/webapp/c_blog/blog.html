@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style type="text/css">
 .error {
 	color: red;
@@ -111,5 +112,54 @@
 			</div>
 		</div>
 		
+=======
+
+<body>
+	<div ng-controller="BlogController as ctrl">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="form-wrap">
+
+						<form ng-submit="ctrl.submit()" name="myForm"
+							class="form-horizondal">
+
+							<div align="center" class="table-responsive">
+								<h2>
+									<b>Post New Blog</b>
+								</h2>
+								<br>
+								<table style="width: 60%">
+
+									<tr class="form-group">
+										<!-- <td style="width: 25%">
+										<label for="job_title" class="sr-only">Title </label></td> -->
+										<td><input id="blog_title" name="blog_title"
+											ng-model="ctrl.blog.blog_title" size="80" class="form-control" placeholder="Title"
+											required autofocus /><br /></td>
+									</tr>
+
+									<tr class="form-group">
+										<!-- <td style="width: 25%"> <label for="job_description" class="sr-only">
+												Content </label></td>-->
+										<td><textarea rows="6" cols="50" id="blog_content" name="blog_content"
+											ng-model="ctrl.blog.blog_content" size="40"
+											class="form-control" required placeholder="Content" ></textarea><br /></td>
+									</tr>
+									<tr>
+										
+										<td colspan="2" align="right">
+											<button type="submit" class="btn btn-success"
+												style="width: 150px;">Post</button>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+>>>>>>> branch 'master' of https://github.com/ANJUPANIL/CollaborationFrontEnd
 	</div>
 </body>

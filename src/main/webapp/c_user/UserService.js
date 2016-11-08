@@ -68,6 +68,7 @@ app.factory('UserService',['$http', '$q', '$rootScope', function($http,$q,$rootS
 	    
 		}*/
 	    
+<<<<<<< HEAD
 	    
 	    logout:function(id){
 	    	return $http.get(BASE_URL+'/user/logout')
@@ -83,6 +84,8 @@ app.factory('UserService',['$http', '$q', '$rootScope', function($http,$q,$rootS
 	    );
 	},
 	    
+=======
+>>>>>>> branch 'master' of https://github.com/ANJUPANIL/CollaborationFrontEnd
 	    authenticate: function(user){
 	    	return $http.post(BASE_URL+'/user/authenticate',user)
 	    	.then(

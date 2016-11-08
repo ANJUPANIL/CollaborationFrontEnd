@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use strict';
 
 app.factory('BlogService',['$http', '$q', '$rootScope', function($http,$q,$rootScope){
@@ -74,3 +75,8 @@ app.factory('BlogService',['$http', '$q', '$rootScope', function($http,$q,$rootS
 	
 }]);
 
+=======
+/**
+ * 
+ */
+>>>>>>> branch 'master' of https://github.com/ANJUPANIL/CollaborationFrontEnd
