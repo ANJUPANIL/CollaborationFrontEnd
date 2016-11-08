@@ -50,7 +50,7 @@
 	right: 0;
 	bottom: 0;
 	margin: 0;
-	padding-right: 220px;
+	padding-right: 320px;
 	padding-left: 80px;
 	width: 100%;
 }
@@ -134,28 +134,30 @@ a:hover {
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbar-collapse-3">
+				<div class="generic-container"
+					ng-controller="UserController as ctrl">
+					<ul class="nav navbar-nav navbar-right">
+						<div ng-show="currentUser.user_id==undefined">
+							<li><a href="#/register"
+								class="btn btn-default btn-outline btn-circle">Register</a></li></div>
+						<div ng-show="currentUser.user_id==undefined">
+							<li><a class="btn btn-default btn-outline btn-circle"
+								data-toggle="collapse" href="#nav-collapse2"
+								aria-expanded="false" aria-controls="nav-collapse2">Sign in</a></li></div>
+						
+					<div ng-hide="currentUser.user_id==undefined">
 
-				<ul class="nav navbar-nav navbar-right">
-					<div ng-show="currentUser==''">
-						<li><a href="#/register"
-							class="btn btn-default btn-outline btn-circle">Register</a></li>
-						<li><a class="btn btn-default btn-outline btn-circle"
-							data-toggle="collapse" href="#nav-collapse2"
-							aria-expanded="false" aria-controls="nav-collapse2">Sign in</a></li>
-					</div>
-					<div ng-hide="currentUser==''">
-						<div class="generic-container"
-							ng-controller="UserController as ctrl">
 							<li><a href="#/home"
-								class="btn btn-default btn-outline btn-circle" ng-click="ctrl.logoutuser()">Logout</a></li>
+								class="btn btn-default btn-outline btn-circle"
+								ng-click="ctrl.logoutuser()">Logout</a></li>
 
+ 
 						</div>
-					</div>
-				</ul>
+					</ul>
 
-				<div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2">
-					<div class="generic-container"
-						ng-controller="UserController as ctrl">
+					<div class="collapse nav navbar-nav nav-collapse"
+						id="nav-collapse2">
+
 						<form class="navbar-form navbar-right form-inline" role="form"
 							ng-submit="ctrl.login()">
 							<div class="form-group">

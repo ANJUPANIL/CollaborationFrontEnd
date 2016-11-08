@@ -38,6 +38,21 @@ app.controller('JobController', ['$scope', 'JobService','$location','$rootScope'
         );
     };
     
+    self.updateJob = function(job, id){
+    	JobService.updateJob(job,id).then(self.fetchAllJobs,
+    			function(errResponse){
+    				console.error("Error while updating job");
+    	});
+    	
+    };
+    
+    self.deleteJob = function(id){
+    	JobService.deleteJob(id).then(self.fetchAllJobs,
+    			function(errResponse){
+    				console.error("Error while delete job");
+    	});
+    	
+    };
     self.fetchAllJobs();
     
     
@@ -61,10 +76,10 @@ app.controller('JobController', ['$scope', 'JobService','$location','$rootScope'
 
      self.remove = function(id){
         console.log('id to be deleted', id);
-        if(self.job.job_id === id) {//clean form if the user to be deleted is shown there.
+        /*if(self.job.job_id === id) {//clean form if the user to be deleted is shown there.
             self.reset();
-        }
-        deleteJob(id);
+        }*/
+        self.deleteJob(id);
     }
 
 

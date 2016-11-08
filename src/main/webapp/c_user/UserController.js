@@ -1,8 +1,8 @@
 'use strict';
 
 
-app.controller('UserController', ['$scope', 'UserService','$location','$rootScope','$cookieStore',
-             function($scope, UserService,$location,$rootScope,$cookieStore) {
+app.controller('UserController', ['$scope', 'UserService','$location','$rootScope','$cookieStore','$http',
+             function($scope, UserService,$location,$rootScope,$cookieStore,$http) {
 	var self = this;
     self.user={
     		user_id:'',
@@ -52,10 +52,17 @@ app.controller('UserController', ['$scope', 'UserService','$location','$rootScop
          UserService.authenticate(user)
              .then(
             		 function(d) {
-                         self.users = d;
-                         if($rootScope.currentUser)
+                         self.user = d;
+                         if(self.user.errorMessage=="")
                         	 {
                         	 	console.log("valid user")
+                        	 	$rootScope.currentUser={
+	    								fname:self.user.fname,
+	    								user_id:self.user.user_id,
+	    								role:self.user.role
+	    						};
+                        	 	$http.defaults.headers.common['Authorization']= 'Basic' + $rootScope.currentUser;
+                        	 	$cookieStore.put('currentUser',$rootScope.currentUser);
                         	 	$location.path('/home');
                         	 	
                         	 }

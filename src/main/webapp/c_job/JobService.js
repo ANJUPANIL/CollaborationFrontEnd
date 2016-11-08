@@ -53,9 +53,9 @@ app.factory('JobService',['$http', '$q', '$rootScope', function($http,$q,$rootSc
 	        
 	    },
 
-	   /* deleteJob: function(id) {
+	   deleteJob: function(id) {
 	        
-	        return $http.delete(BASE_URL+'/Job/'+id)
+	        return $http.put(BASE_URL+'/deletejob/'+id)
 	            .then(
 	            function(response) {
 	                return response.data;
@@ -67,7 +67,7 @@ app.factory('JobService',['$http', '$q', '$rootScope', function($http,$q,$rootSc
 	        );
 	        
 	    
-		}*/
+		}
 	
 	}
 	

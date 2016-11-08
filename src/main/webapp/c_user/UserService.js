@@ -89,7 +89,7 @@ app.factory('UserService',['$http', '$q', '$rootScope', function($http,$q,$rootS
 	    	return $http.post(BASE_URL+'/user/authenticate',user)
 	    	.then(
 	    			function(response){
-	    				if(response.data.errorMessage=="")
+	    				/*if(response.data.errorMessage=="")
 	    					{
 	    					
 	    						$rootScope.currentUser={
@@ -98,13 +98,13 @@ app.factory('UserService',['$http', '$q', '$rootScope', function($http,$q,$rootS
 	    								role:response.data.role
 	    						};
 	    						
-	    					}
+	    					}*/
 	    				return response.data;
 	    			},
 	    
 	    	function(errResponse)
 	    	{
-	    		$rootScope.userLoggedIn=false;
+	    		//$rootScope.userLoggedIn=false;
 	    		console.error('Error while getting user');
 	    		return $q.reject(errResponse);
 	    		

@@ -43,13 +43,13 @@ app.run( function($rootScope,$location,$cookieStore,$http){
 	
 	$rootScope.$on('$locationChangeStart',function(event,next,current){
 		console.log("$locationChangeStart")
-		var restrictedPage=$.inArray($location.path(),['/register','/viewjob'])== -1;
+		var restrictedPage=$.inArray($location.path(),['/postjob','/blog'])== -1;
 		console.log("restrictedpage ;"+restrictedPage)
 		var loggedIn=$rootScope.currentUser;
 		console.log("loggedin:"+loggedIn)
-		if(restrictedPage){
+		if(restrictedPage & loggedIn){
 			console.log("navigation to login page")
-			$location.path('/login');
+			$location.path('/home');
 		}
 		
 	});
