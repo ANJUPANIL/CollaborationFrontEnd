@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 'use strict';
 
 app.controller('BlogController', ['$scope', 'BlogService','$location','$rootScope',
@@ -67,8 +67,4 @@ app.controller('BlogController', ['$scope', 'BlogService','$location','$rootScop
     
     
 }]);
-=======
-/**
- * 
- */
->>>>>>> branch 'master' of https://github.com/ANJUPANIL/CollaborationFrontEnd
+
