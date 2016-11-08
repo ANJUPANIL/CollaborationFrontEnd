@@ -73,7 +73,7 @@
 
 .btn.btn-circle {
 	border-radius: 50px;
-	color:#FFFAF0;
+	color: #FFFAF0;
 }
 
 .btn.btn-outline {
@@ -133,36 +133,44 @@ a:hover {
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbar-collapse-3">
+
 				<ul class="nav navbar-nav navbar-right">
-				<div ng-show="currentUser==''">	
-					<li><a href="#/register"
-						class="btn btn-default btn-outline btn-circle">Register</a></li>
-					<li><a class="btn btn-default btn-outline btn-circle"
-						data-toggle="collapse" href="#nav-collapse2" aria-expanded="false"
-						aria-controls="nav-collapse2">Sign in</a></li>
+					<div ng-show="currentUser==''">
+						<li><a href="#/register"
+							class="btn btn-default btn-outline btn-circle">Register</a></li>
+						<li><a class="btn btn-default btn-outline btn-circle"
+							data-toggle="collapse" href="#nav-collapse2"
+							aria-expanded="false" aria-controls="nav-collapse2">Sign in</a></li>
 					</div>
 					<div ng-hide="currentUser==''">
-					<li><a href="#/home"
-						class="btn btn-default btn-outline btn-circle">Logout</a></li>
-					
-					</div>	
+						<div class="generic-container"
+							ng-controller="UserController as ctrl">
+							<li><a href="#/home"
+								class="btn btn-default btn-outline btn-circle" ng-click="ctrl.logoutuser()">Logout</a></li>
+
+						</div>
+					</div>
 				</ul>
+
 				<div class="collapse nav navbar-nav nav-collapse" id="nav-collapse2">
-					<div class="generic-container" ng-controller="UserController as ctrl">
-					<form class="navbar-form navbar-right form-inline" role="form" ng-submit="ctrl.login()">
-						<div class="form-group">
-							<label class="sr-only" for="user_id">Email</label> <input
-								type="email" class="form-control" id="user_id" ng-model="ctrl.user.user_id" 
-								placeholder="Email" autofocus required />
-						</div>
-						<div class="form-group">
-							<label class="sr-only" for="password">Password</label> <input
-								type="password" class="form-control" id="password" ng-model="ctrl.user.password" 
-								placeholder="Password" required />
-						</div>
-						<button type="submit" class="btn btn-success">Sign in</button>
-					</form>
-					</div>			
+					<div class="generic-container"
+						ng-controller="UserController as ctrl">
+						<form class="navbar-form navbar-right form-inline" role="form"
+							ng-submit="ctrl.login()">
+							<div class="form-group">
+								<label class="sr-only" for="user_id">Email</label> <input
+									type="email" class="form-control" id="user_id"
+									ng-model="ctrl.user.user_id" placeholder="Email" autofocus
+									required />
+							</div>
+							<div class="form-group">
+								<label class="sr-only" for="password">Password</label> <input
+									type="password" class="form-control" id="password"
+									ng-model="ctrl.user.password" placeholder="Password" required />
+							</div>
+							<button type="submit" class="btn btn-success">Sign in</button>
+						</form>
+					</div>
 				</div>
 
 			</div>
@@ -190,7 +198,6 @@ a:hover {
 					<li><a href="#/blog">Post Blog</a></li>
 					<li><a href="#/viewblog">View Blog</a></li>
 				</ul>
-			
 			<li><a href="#/">Friends</a></li>
 			<li><a href="#/">Events</a></li>
 			<li><a href="#/">Chat Forums</a></li>
@@ -218,7 +225,7 @@ a:hover {
 	<script src="c_job/JobService.js"></script>
 	<script src="c_blog/BlogController.js"></script>
 	<script src="c_blog/BlogService.js"></script>
-	
+
 	<script src="resources/js/jsfiles/angular-cookies.min.js"></script>
 
 </body>

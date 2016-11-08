@@ -76,7 +76,7 @@ app.factory('UserService',['$http', '$q', '$rootScope', function($http,$q,$rootS
     	                return response.data;
     	            },
     	            function(errResponse){
-    	                console.error('Error while updating User');
+    	                console.error('Error while logout User');
     	                return $q.reject(errResponse);
     	            }
 	    	

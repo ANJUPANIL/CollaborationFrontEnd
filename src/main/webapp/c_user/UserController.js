@@ -1,7 +1,7 @@
 'use strict';
 
-app.controller('UserController', ['$scope', 'UserService','$location','$rootScope',
-             function($scope, UserService,$location,$rootScope) {
+app.controller('UserController', ['$scope', 'UserService','$location','$rootScope','$cookieStore',
+             function($scope, UserService,$location,$rootScope,$cookieStore) {
 	var self = this;
     self.user={
     		user_id:'',
@@ -82,8 +82,9 @@ app.controller('UserController', ['$scope', 'UserService','$location','$rootScop
     };
     
     self.logout=function(){
+    	console.log("Logout function in user controller")
     	$rootScope.currentUser={};
-    	$cookieStore.romove('currentUser');
+    	$cookieStore.remove('currentUser');
     	UserService.logout()
     }
 
@@ -94,6 +95,12 @@ app.controller('UserController', ['$scope', 'UserService','$location','$rootScop
     		self.authenticate(self.user);
     	}
     	
+    };
+    self.logoutuser=function(){
+    
+    	console.log('Logout User');
+    	self.logout();
+    
     };
      self.submit = function() {
      {
