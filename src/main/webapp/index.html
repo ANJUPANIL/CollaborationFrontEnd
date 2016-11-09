@@ -119,7 +119,8 @@ a:hover {
 <body>
 
 	<nav class="navbar navbar-inverse">
-		<div class="container">
+		<div class="container" class="generic-container"
+					ng-controller="UserController as ctrl">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
@@ -134,18 +135,17 @@ a:hover {
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="navbar-collapse-3">
-				<div class="generic-container"
-					ng-controller="UserController as ctrl">
+				
 					<ul class="nav navbar-nav navbar-right">
 						<div ng-show="currentUser.user_id==undefined">
 							<li><a href="#/register"
-								class="btn btn-default btn-outline btn-circle">Register</a></li></div>
-						<div ng-show="currentUser.user_id==undefined">
+								class="btn btn-default btn-outline btn-circle">Register</a></li>
 							<li><a class="btn btn-default btn-outline btn-circle"
 								data-toggle="collapse" href="#nav-collapse2"
-								aria-expanded="false" aria-controls="nav-collapse2">Sign in</a></li></div>
+								aria-expanded="false" aria-controls="nav-collapse2">Sign in</a></li>
+						</div>
 						
-					<div ng-hide="currentUser.user_id==undefined">
+							<div ng-hide="currentUser.user_id==undefined">
 
 							<li><a href="#/home"
 								class="btn btn-default btn-outline btn-circle"
@@ -154,7 +154,7 @@ a:hover {
  
 						</div>
 					</ul>
-
+		</div>
 					<div class="collapse nav navbar-nav nav-collapse"
 						id="nav-collapse2">
 
@@ -174,9 +174,9 @@ a:hover {
 							<button type="submit" class="btn btn-success">Sign in</button>
 						</form>
 					</div>
-				</div>
+				
 
-			</div>
+			
 			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container -->
@@ -188,11 +188,18 @@ a:hover {
 		<ul class="nav navbar-nav navbar-right " style="margin-right: 50px;">
 
 			<li><a href="#/home">Home</a></li>
-
+			
+			<li  ng-show="currentUser.role=='admin'" class="dropdown"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown">Approve<b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					<li><a href="#/approveregister">Register</a></li>
+					<li><a href="#/approveblog">Blog</a></li>
+				</ul>
 			<li class="dropdown"><a href="#" class="dropdown-toggle"
 				data-toggle="dropdown">Job Opportunities<b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="#/postjob">Post Job</a></li>
+					<li ng-show="currentUser.role=='admin'"><a href="#/postjob">Post
+							Job</a></li>
 					<li><a href="#/viewjob">View Job</a></li>
 				</ul>
 			<li class="dropdown"><a href="#" class="dropdown-toggle"
@@ -209,6 +216,7 @@ a:hover {
 
 
 		</ul>
+	</div>
 	</div>
 	<br>
 	<div class="jumbotron">

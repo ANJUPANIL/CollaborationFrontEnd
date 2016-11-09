@@ -34,6 +34,16 @@ app.config(function($routeProvider){
 		controller  : 'BlogController'
 	})
 	
+	.when('/approveblog', {
+		templateUrl : 'c_admin/approveblog.html',
+		controller  : 'AdminController'
+	})
+	
+	.when('/approveregister', {
+		templateUrl : 'c_admin/approveregister.html',
+		controller  : 'AdminController'
+	})
+	
 	.otherwise({redirectTo: '/'});
 	alert("hi")
 	
@@ -43,11 +53,11 @@ app.run( function($rootScope,$location,$cookieStore,$http){
 	
 	$rootScope.$on('$locationChangeStart',function(event,next,current){
 		console.log("$locationChangeStart")
-		var restrictedPage=$.inArray($location.path(),['/postjob','/blog'])== -1;
+		var restrictedPage=$.inArray($location.path(),['/postjob','/blog'])=== -1;
 		console.log("restrictedpage ;"+restrictedPage)
 		var loggedIn=$rootScope.currentUser;
-		console.log("loggedin:"+loggedIn)
-		if(restrictedPage & loggedIn){
+		console.log("loggedin:"+loggedIn.user_id)
+		if(restrictedPage && !loggedIn){
 			console.log("navigation to login page")
 			$location.path('/home');
 		}

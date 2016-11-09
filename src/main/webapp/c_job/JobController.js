@@ -72,6 +72,7 @@ app.controller('JobController', ['$scope', 'JobService','$location','$rootScope'
                 break;
             }
         }
+        self.updateJob(self.job,id)
     };
 
      self.remove = function(id){
