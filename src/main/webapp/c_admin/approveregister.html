@@ -1,10 +1,73 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<style type="text/css">
+.error {
+	color: red;
+}
 
+.filterable {
+	margin-top: 15px;
+}
+
+.filterable .panel-heading .pull-right {
+	margin-top: -25px;
+}
+</style>
+<body>
+	<div ng-controller="AdminController as ctrl">
+	
+	<div class="row" align="center">
+			<div class="panel panel-default filterable" style="width: 100%;">
+					<p>
+					<div class="pull-right">
+						<input type="text" class="form-control" size="40"
+							ng-model="searchTerm" placeholder="Search Job" />
+					</div><h3 align="left">List All Pending User Registrations</h3><p>
+					
+				<br>	
+				<div align="center" class="table-responsive">
+					<table style="width: 80%">
+						<tr style="width: 100%" >
+							<td>
+								<table class="table" >
+									<tr style="font-weight: bold;" >
+									
+										<td style="width: 20%">ID#</td>
+										<td style="width: 20%">NAME</td>
+										<td style="width: 20%">DOB</td>
+										<td style="width: 60%">ADDRESS</td>
+										<td style="width: 20%">CONTACT</td>
+										<td style="width: 20%">ROLE</td>
+										<td style="width: 20%">CREATED DATE</td>
+										<td style="width: 20%">STATUS</td>
+										<td align="center"><span class="glyphicon glyphicon-asterisk"></span></td>
+
+
+									</tr>
+									<tr ng-repeat="user in ctrl.pendingusers | filter:searchTerm">
+									
+										<td style="font-weight: bold;">{{user.user_id}}</td>	
+										<td>{{user.fname}}</td>
+										<td>{{user.dob}}</td>
+										<td>{{user.address}}</td>
+										<td>{{user.contact}}</td>
+										<td>{{user.role}}</td>
+										<td>{{user.createddate}}</td>
+										<td><a href="#/approveregister" ng-click="ctrl.approveuser(user.user_id)"
+											class="btn btn-primary" role="button"  ><span class="glyphicon glyphicon-ok-circle"></span>Approve</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+											<a href="#/approveregister" class="btn btn-warning" ng-click="ctrl.rejectuser(user.user_id)"
+											role="button" style="width: 92px"><span class="glyphicon glyphicon-ban-circle"></span>Reject</a>
+										</td>
+										
+									</tr>
+								</table>
+
+
+
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
-</html>

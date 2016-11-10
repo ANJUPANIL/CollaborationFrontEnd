@@ -50,7 +50,7 @@
 	right: 0;
 	bottom: 0;
 	margin: 0;
-	padding-right: 320px;
+	padding-right: 300px;
 	padding-left: 80px;
 	width: 100%;
 }
@@ -137,22 +137,19 @@ a:hover {
 			<div class="collapse navbar-collapse" id="navbar-collapse-3">
 				
 					<ul class="nav navbar-nav navbar-right">
-						<div ng-show="currentUser.user_id==undefined">
-							<li><a href="#/register"
+						
+							<li ng-show="currentUser.user_id==undefined"><a href="#/register"
 								class="btn btn-default btn-outline btn-circle">Register</a></li>
-							<li><a class="btn btn-default btn-outline btn-circle"
+							<li ng-show="currentUser.user_id==undefined"><a class="btn btn-default btn-outline btn-circle"
 								data-toggle="collapse" href="#nav-collapse2"
 								aria-expanded="false" aria-controls="nav-collapse2">Sign in</a></li>
-						</div>
 						
-							<div ng-hide="currentUser.user_id==undefined">
-
-							<li><a href="#/home"
+							<li ng-hide="currentUser.user_id==undefined"><a href="#/home"
 								class="btn btn-default btn-outline btn-circle"
 								ng-click="ctrl.logoutuser()">Logout</a></li>
 
  
-						</div>
+						
 					</ul>
 		</div>
 					<div class="collapse nav navbar-nav nav-collapse"
@@ -236,7 +233,11 @@ a:hover {
 	<script src="c_job/JobService.js"></script>
 	<script src="c_blog/BlogController.js"></script>
 	<script src="c_blog/BlogService.js"></script>
-
+	<script src="c_admin/AdminController.js"></script>
+	<script src="c_admin/AdminService.js"></script>
+	
+	
+	
 	<script src="resources/js/jsfiles/angular-cookies.min.js"></script>
 
 

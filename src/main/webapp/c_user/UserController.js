@@ -67,7 +67,7 @@ app.controller('UserController', ['$scope', 'UserService','$location','$rootScop
                         	 	
                         	 }
                          else{
-                        	 alert("Invalid credentials..Please enter valid credentials");
+                        	 alert(self.user.errorMessage);
                          }
                      },
                      
