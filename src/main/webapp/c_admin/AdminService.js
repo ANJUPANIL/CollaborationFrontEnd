@@ -56,7 +56,7 @@ app.factory('AdminService',['$http', '$q', '$rootScope', function($http,$q,$root
 	        return $http.get(BASE_URL+'/allpendingregister')
 	            .then(
 	            function (response) {
-	            	console.log('Fetch blog in Admin Service'+ response.data[0].user)
+	            	console.log('Fetch user in Admin Service'+ response.data[0].user_id)
 	                return response.data;
 	            },
 	            function(errResponse){

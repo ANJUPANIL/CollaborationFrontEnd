@@ -47,7 +47,7 @@ app.controller('AdminController', ['$scope', 'AdminService','$location','$rootSc
             function(d) {
             	
                 self.pendingusers = d;
-                console.log("Pending blog"+ self.pendingusers[0].user_id );
+                console.log("Pending user "+ self.pendingusers[0].user_id );
                 
                 
             },
